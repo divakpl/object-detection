@@ -1,3 +1,3 @@
-## Squash ball recognition with OpenCV and JavaFX
+## Squash ball detection with OpenCV and JavaFX
 
-Squash ball recognition and tracking app
+Squash ball detection and tracking app
