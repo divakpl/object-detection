@@ -27,7 +27,7 @@ public class SquashBallDetectionApp extends Application {
             scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             // create the stage with the given title and the previously created
             // scene
-            primaryStage.setTitle("Object Recognition");
+            primaryStage.setTitle("Squash Ball Detection");
             primaryStage.setScene(scene);
             // show the GUI
             primaryStage.show();

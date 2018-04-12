@@ -72,9 +72,6 @@ public class SquashBallController {
     // property for object binding
     private ObjectProperty<String> hsvValuesProp;
 
-    /**
-     * The action triggered by pushing the button on the GUI
-     */
     @FXML
     private void startCamera() {
         // bind a text property with the string containing the current range of
@@ -128,11 +125,6 @@ public class SquashBallController {
         }
     }
 
-    /**
-     * Get a frame from the opened video stream (if any)
-     *
-     * @return the {@link Image} to show
-     */
     private Mat grabFrame() {
         Mat frame = new Mat();
 
@@ -203,15 +195,6 @@ public class SquashBallController {
         return frame;
     }
 
-    /**
-     * Given a binary image containing one or more closed surfaces, use it as a
-     * mask to find and highlight the objects contours
-     *
-     * @param maskedImage the binary image to be used as a mask
-     * @param frame       the original {@link Mat} image to be used for drawing the
-     *                    objects contours
-     * @return the {@link Mat} image with the objects contours framed
-     */
     private Mat findAndDrawBalls(Mat maskedImage, Mat frame) {
         // init
         List<MatOfPoint> contours = new ArrayList<>();
@@ -231,13 +214,6 @@ public class SquashBallController {
         return frame;
     }
 
-    /**
-     * Set typical {@link ImageView} properties: a fixed width and the
-     * information to preserve the original image ration
-     *
-     * @param image     the {@link ImageView} to use
-     * @param dimension the width of the image to set
-     */
     private void imageViewProperties(ImageView image, int dimension) {
         // set a fixed width for the given ImageView
         image.setFitWidth(dimension);
@@ -245,9 +221,6 @@ public class SquashBallController {
         image.setPreserveRatio(true);
     }
 
-    /**
-     * Stop the acquisition from the camera and release all the resources
-     */
     private void stopAcquisition() {
         if (this.timer != null && !this.timer.isShutdown()) {
             try {
@@ -266,21 +239,11 @@ public class SquashBallController {
         }
     }
 
-    /**
-     * Update the {@link ImageView} in the JavaFX main thread
-     *
-     * @param view  the {@link ImageView} to update
-     * @param image the {@link Image} to show
-     */
     private void updateImageView(ImageView view, Image image) {
         Utils.onFXThread(view.imageProperty(), image);
     }
 
-    /**
-     * On application close, stop the acquisition from the camera
-     */
     public void setClosed() {
         this.stopAcquisition();
     }
-
 }
